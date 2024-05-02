@@ -1,0 +1,9 @@
+<h2>Fotos del Héroe</h2>
+
+<div *ngFor="let foto of fotos" class="card" style="width: 18rem;">
+  <img [src]="foto.url" class="card-img-top" alt="Foto del héroe">
+  <div class="card-body">
+    <p>ID: {{ foto.idHeroe }}</p>
+    <!-- Agregado recientemente a la redireccion -->
+  </div>
+</div>
