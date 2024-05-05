@@ -74,4 +74,8 @@ export class HeroesComponent {
   verHeroe( idx:number ){
     this.router.navigate( ['/heroe',idx] );
   }
+
+  verFotos(id: string){
+    this.router.navigate(['/heroe', id])
+  }
 }
