@@ -1,10 +1,16 @@
-
 <div class="card" style="width: 18rem;">
-  <!-- <img [src]="heroe.imgCasa" class="img-left" alt=""> -->
   <img [src]="heroe.img" class="card-img-top" alt="...">
   <div class="card-body">
-      <h5 class="card-title">{{heroe.nombre}}</h5>
-      <p class="card-text">{{heroe.bio}}</p>
-      <button  class="btn btn-primary" (click)="verFotos(heroe._id)">Ver Fotos</button>
+    <h5 class="card-title">{{ index + 1 }} - {{heroe.nombre}}</h5>
+    <p class="card-text">{{heroe.bio}}</p>
+    <p class="card-text">
+      <small class="text-muted">{{ heroe.aparicion }}</small>
+    </p>
+    <button class="btn btn-outline-primary" (click)="verFotos(heroe._id)">
+      Ver Fotos
+    </button>
+    <button class="btn btn-outline-primary" (click)="verHeroe(heroe._id)">
+      Ver más...
+    </button>
   </div>
 </div>

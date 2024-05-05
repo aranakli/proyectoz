@@ -1,11 +1,10 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './components/about/about.component';
-import { BuscadorComponent } from './components/buscador/buscador.component';
-import { HeroeComponent } from './components/heroe/heroe.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
 import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroeComponent } from './components/heroe/heroe.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FotosComponent } from './components/fotos/fotos.component'; // Nueva
 
 const routes: Routes = [

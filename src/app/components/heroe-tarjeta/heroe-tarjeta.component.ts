@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Heroe } from 'src/app/interfaces/heroes.interface';
 
@@ -9,11 +9,23 @@ import { Heroe } from 'src/app/interfaces/heroes.interface';
 })
 export class HeroeTarjetaComponent {
   @Input() heroe!: Heroe;
+  @Input() index!: number;
+
+  @Output() heroeSeleccionado: EventEmitter<number>;
 
   fotos: any[] = [];
-  constructor( private router: Router) { }
+  constructor( private router: Router) {
+    this.heroeSeleccionado = new EventEmitter();
+   }
+
+  verHeroe(id: string) {
+    this.router.navigate( ['/heroe',id] );
+  }
 
   verFotos(id: string){
     this.router.navigate(['/heroe', id])
   }
+
+
+
 }

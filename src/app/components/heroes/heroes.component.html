@@ -1,3 +1,24 @@
+<h1>Héroes Marvel y DC</h1>
+
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button (click)="cambiarVisualizacion('grid')" type="button" class="btn btn-danger">Grid</button>
+    <button (click)="cambiarVisualizacion('list')" type="button" class="btn btn-primary">Lista</button>
+</div>
+
+<hr />
+
+<div *ngIf="visualizacion === 'grid'" class="container">
+  <div class="row">
+    <div class="col" *ngFor="let heroe of heroes; let i = index">
+      <app-heroe-tarjeta
+        (heroeSeleccionado)="verHeroe($event)"
+        [heroe]="heroe"
+        [index]="i"
+      ></app-heroe-tarjeta>
+    </div>
+  </div>
+</div>
+
 <div class="container text-center">
   <div class="row">
     <div *ngFor="let miHeroe of heroes; let i = index" class="col">
