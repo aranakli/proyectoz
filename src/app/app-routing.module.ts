@@ -6,6 +6,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FotosComponent } from './components/fotos/fotos.component'; // Nueva
+import { HeroeEditComponent } from './components/heroe-edit/heroe-edit.component';
 
 const routes: Routes = [
   { path: 'hogar', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'heroe/:id', component: HeroeComponent},
   { path: 'buscar/:termino', component: BuscadorComponent},
   { path: 'fotos/:idHeroe', component: FotosComponent }, // Nueva
+  { path: 'heroeedit/:idheroe', component: HeroeEditComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

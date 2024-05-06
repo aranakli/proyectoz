@@ -24,9 +24,19 @@
           <li class="nav-item" routerLinkActive="active">
              <a class="nav-link" [routerLink]="['heroes']">Heroes</a>
           </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" [routerLink]="['heroe/nuevo']">Nuevo Heroe</a>
-         </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/home">Ir al Home</a></li>
+              <li><a class="dropdown-item" href="/heroe/nuevo">Crear nuevo Heroe</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Otra accion</a></li>
+            </ul>
+          </li>
           <li class="nav-item" routerLinkActive="active">
              <a class="nav-link" [routerLink]="['about']">Acerca de</a>
           </li>

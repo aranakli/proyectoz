@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Heroe } from 'src/app/interfaces/heroes.interface';
 import { HeroesBDService } from 'src/app/services/heroes-db.service';
 import { HeroesService } from 'src/app/services/heroes.service';
+import { MongoDBService } from '../../services/mongo-db.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-heroes',
@@ -15,9 +17,15 @@ export class HeroesComponent {
   cargando:boolean = false;
 
   heroes: Heroe[] = [];
+  Heroes!: Heroe[];
+
+  unResultado!:any;
+  unaAccion: string = 'Mensaje';
+  unMensaje: string = '';
 
   constructor(private data: HeroesService,
               private router: Router,
+              private dataBDM: MongoDBService,
               private dataBD: HeroesBDService) {
     // this.heroes = data.getHeroes();
     this.cargarHeroesV1();
@@ -25,7 +33,8 @@ export class HeroesComponent {
   }
 
   ngOnInit() {
-    this.heroes = this.data.getHeroes();
+    this.cargarHeroesBD();
+    // this.heroes = this.data.getHeroes();
 
     //this.cargarData();
 
@@ -54,6 +63,17 @@ export class HeroesComponent {
       });
   }
 
+  async cargarHeroesBD() {
+    //this.cargando = true;
+    await this.dataBDM
+    .getHeroes()
+    .toPromise()
+    .then((data:any) =>{
+      this.Heroes = data.resp;
+      console.log(this.Heroes)
+    });
+  }
+
   // verHeroe( idx:number ){
   //   this.router.navigate( ['/heroe',idx] );
   // }
@@ -78,4 +98,50 @@ export class HeroesComponent {
   verFotos(id: string){
     this.router.navigate(['/heroe', id])
   }
+
+  editarHeroe(unIdHeroe:any){
+    this.router.navigate(['/heroeedit', unIdHeroe]);
+  }
+
+  eliminarHeroe(unHeroe: any) {
+    //console.log(this.unaDivision);
+    this.dataBDM.crud_Heroes(unHeroe, 'eliminar').subscribe(
+      (res: any) => {
+        this.unResultado = res;
+
+        //console.log(this.unResultado);
+        if (this.unResultado.Ok == true) {
+
+           Swal.fire({
+            icon: 'info',
+            title: 'Information',
+            text: 'Heroe Eliminado',
+          });
+
+          this.unaAccion = 'Mensaje:';
+          this.unMensaje = 'Heroe Eliminado';
+          setTimeout(() => (this.unMensaje = ''), 3000);
+
+
+          this.cargarHeroesBD() ;
+
+        } else {
+          Swal.fire({
+            icon: 'info',
+            title: 'Information',
+            text: this.unResultado.msg,
+          });
+
+
+          this.unaAccion = 'Error:';
+          this.unMensaje = this.unResultado.msg;
+          setTimeout(() => (this.unMensaje = ''), 3000);
+        }
+      }
+      ,(error:any) => {
+        console.error(error)
+      }
+    );
+  }
+
 }

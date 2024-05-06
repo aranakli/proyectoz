@@ -17,6 +17,8 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { HeroeEditComponent } from './components/heroe-edit/heroe-edit.component';
+import { HeroeNewComponent } from './components/heroe-new/heroe-new.component';
 
 
 
@@ -30,7 +32,9 @@ import { FormsModule } from '@angular/forms';
     HeroeComponent,
     HeroeTarjetaComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    HeroeEditComponent,
+    HeroeNewComponent
   ],
   imports: [
     BrowserModule,

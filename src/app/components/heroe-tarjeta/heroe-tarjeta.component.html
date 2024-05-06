@@ -6,11 +6,19 @@
     <p class="card-text">
       <small class="text-muted">{{ heroe.aparicion }}</small>
     </p>
-    <button class="btn btn-outline-primary" (click)="verFotos(heroe._id)">
-      Ver Fotos
-    </button>
     <button class="btn btn-outline-primary" (click)="verHeroe(heroe._id)">
-      Ver más...
+      Más...
+    </button>
+    <button class="btn btn-outline-primary" (click)="verFotos(heroe._id)">
+      Fotos
+    </button>
+    <button (click)="editarHeroe(heroe._id)" type="button" class="btn btn-outline-success btn-block">
+      <i class="fa fa-edit"></i>
+      Editar
+    </button>
+    <button (click)="eliminarHeroe(heroe._id)" type="button" class="btn btn-outline-danger btn-block">
+      <i class="fa fa-trash"></i>
+      Eliminar
     </button>
   </div>
 </div>

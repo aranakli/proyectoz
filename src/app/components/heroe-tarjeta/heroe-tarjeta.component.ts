@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Heroe } from 'src/app/interfaces/heroes.interface';
 
+
 @Component({
   selector: 'app-heroe-tarjeta',
   templateUrl: './heroe-tarjeta.component.html',
@@ -26,6 +27,12 @@ export class HeroeTarjetaComponent {
     this.router.navigate(['/heroe', id])
   }
 
+  editarHeroe(unIdHeroe:any){
+    this.router.navigate(['/heroeedit', unIdHeroe]);
+  }
 
+  eliminarHeroe(id: string){
+    this.router.navigate(['/heroe', id])
+  }
 
 }
