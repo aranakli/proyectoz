@@ -61,14 +61,12 @@ export class HeroeEditComponent {
     if (this.idHeroe == 'nuevo') {
 
       this.nuevoHeroe();
-
+      console.log("Se envio Guardar" + this.idHeroe);
     } else {
 
       this.actualizarHeroe();
 
     }
-
-
 
   }
 
