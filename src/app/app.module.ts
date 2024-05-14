@@ -18,6 +18,10 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HeroeEditComponent } from './components/heroe-edit/heroe-edit.component';
+import { MultimediaListComponent } from './components/multimedia-list/multimedia-list.component';
+import { MultimediaEditComponent } from './components/multimedia-edit/multimedia-edit.component';
+import { MultimediaHeroesEditComponent } from './components/multimedia-heroes-edit/multimedia-heroes-edit.component';
+import { MultimediaHeroesListComponent } from './components/multimedia-heroes-list/multimedia-heroes-list.component';
 
 
 
@@ -32,7 +36,11 @@ import { HeroeEditComponent } from './components/heroe-edit/heroe-edit.component
     HeroeTarjetaComponent,
     FooterComponent,
     AboutComponent,
-    HeroeEditComponent
+    HeroeEditComponent,
+    MultimediaListComponent,
+    MultimediaEditComponent,
+    MultimediaHeroesEditComponent,
+    MultimediaHeroesListComponent
   ],
   imports: [
     BrowserModule,

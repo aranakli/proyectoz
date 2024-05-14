@@ -103,13 +103,13 @@ export class HeroesComponent {
     this.router.navigate(['/heroeedit', unIdHeroe]);
   }
 
-  eliminarHeroe(unHeroe: any) {
-    //console.log(this.unaDivision);
-    this.dataBDM.crud_Heroes(unHeroe, 'eliminar').subscribe(
+  eliminarHeroe(unIdHeroe: any) {
+    console.log(unIdHeroe);
+    this.dataBDM.crud_Heroes(unIdHeroe, 'eliminar').subscribe(
       (res: any) => {
         this.unResultado = res;
 
-        //console.log(this.unResultado);
+        console.log(this.unResultado);
         if (this.unResultado.Ok == true) {
 
            Swal.fire({
